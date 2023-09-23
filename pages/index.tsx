@@ -68,7 +68,7 @@ export default function Home() {
       .then((_) => {
         messageApi.open({
           type: 'success',
-          content: 'Tarea creada correctemente !!',
+          content: 'Tarea creada correctamente !!',
         });
         setInitLoading(false)
       })
@@ -94,7 +94,7 @@ export default function Home() {
       .then((_) => {
         messageApi.open({
           type: 'success',
-          content: 'Tarea finalizada correctemente !!',
+          content: 'Tarea actualizada correctamente !!',
         });
         getNotes()
         setInitLoading(false)
@@ -120,7 +120,7 @@ export default function Home() {
       .then((_) => {
         messageApi.open({
           type: 'success',
-          content: 'Tarea finalizada correctemente !!',
+          content: 'Tarea eliminada correctamente !!',
         });
         getNotes()
         setInitLoading(false)
