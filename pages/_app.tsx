@@ -1,4 +1,5 @@
 import '../globals.css'
+import 'antd/dist/antd.css'
 
 function MyApp({ Component, pageProps } : any) {
   return <Component {...pageProps} />;
