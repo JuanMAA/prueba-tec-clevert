@@ -34,3 +34,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+### Environment Variables Configuration
+
+This project utilizes certain environment variables for its configuration. Below, you will find details on the necessary variables and their purposes:
+
+- `NEXT_PUBLIC_API_URL`: This environment variable defines the endpoint for managing notes within the application. Ensure that you configure this variable correctly so that the application can interact with the notes API.
+
+To configure these environment variables, follow these steps:
+
+1. Create a file named `.env.local` at the root of the project.
+
+2. Open the `.env.local` file and define the environment variables as follows:
+
+```markdown
+NEXT_PUBLIC_API_URL=https://your-notes-api.com/api
