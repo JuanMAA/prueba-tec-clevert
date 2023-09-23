@@ -35,7 +35,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-### Environment Variables Configuration
+## Environment Variables Configuration
 
 This project utilizes certain environment variables for its configuration. Below, you will find details on the necessary variables and their purposes:
 
