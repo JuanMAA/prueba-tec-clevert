@@ -1,6 +1,6 @@
-export default async (req: any, res: any) => {
+export default async (_: any, res: any) => {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    const apiUrl : string = process.env.NEXT_PUBLIC_API_URL ?? '';
     const response = await fetch(apiUrl);
 
     if (!response.ok) {
@@ -10,7 +10,7 @@ export default async (req: any, res: any) => {
     const data = await response.json();
 
     res.status(200).json(data);
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({ error: error.message || 'Error al obtener datos de la API' });
   }
 };

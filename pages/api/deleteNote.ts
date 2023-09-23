@@ -9,7 +9,7 @@ export default async (req: any, res: any) => {
     });
 
     res.status(204).send(); 
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({ error: error.message || 'Error al eliminar la nota en la API' });
   }
 };

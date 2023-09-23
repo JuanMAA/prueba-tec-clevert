@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Radio, Button, Tag, Modal, Divider, Col, Row, Popconfirm, Form, Input, message, Table, Typography } from 'antd';
 import { format } from 'date-fns';
+import { RadioChangeEvent } from '@/node_modules/antd/es/index';
 
 interface DataType {
   gender?: string;
@@ -19,16 +20,10 @@ interface DataType {
   loading: boolean;
 }
 
-interface DataType {
-  key: React.Key;
-  name: string;
-  age: number;
-  address: string;
-}
 
 export default function Home() {
   const [initLoading, setInitLoading] = useState(true);
-  const [list, setList] = useState<DataType[]>([]);
+  const [list, setList] = useState([] as Array<any>);
   const [placement, SetPlacement] = useState('all' as string);
   const [messageApi, contextHolder] = message.useMessage();
 
@@ -52,10 +47,10 @@ export default function Home() {
       setInitLoading(false)
       console.log("data", data)
       setList(data);
-    } catch (error) {
+    } catch (error: any) {
       messageApi.open({
         type: 'error',
-        content: error,
+        content: error?.message ?? 'La solicitud no tuvo éxito',
       });
       setInitLoading(false)
     }
@@ -155,8 +150,8 @@ export default function Home() {
     setIsModalOpen(false);
   };
 
-  function formatDateToCustomFormat(item) {
-    const createdAt = item?.createdAt ? new Date(item.createdAt) : new Date();
+  function formatDateToCustomFormat(item: any) {
+    const createdAt: any = item?.createdAt ? new Date(item.createdAt) : new Date();
     if (!isNaN(createdAt)) {
       return format(createdAt, 'yyyy-MM-dd HH:mm:ss');
     } else {
@@ -164,7 +159,7 @@ export default function Home() {
     }
   }
 
-  const columns: ColumnsType<DataType> = [
+  const columns: any = [
     {
       title: 'Tarea',
       width: 100,
@@ -189,9 +184,9 @@ export default function Home() {
       dataIndex: 'createdAt',
       key: 'createdAt',
       width: 150,
-      sorter: (a, b) => {
-        const dateA = new Date(a.createdAt);
-        const dateB = new Date(b.createdAt);
+      sorter: (a: any, b: any) => {
+        const dateA: any = new Date(a.createdAt);
+        const dateB: any = new Date(b.createdAt);
         return dateA - dateB;
       },
       render: (item: any) => { return formatDateToCustomFormat(item?.createdAt) }
@@ -265,7 +260,7 @@ export default function Home() {
         </Col>
         <Col>
           <Modal centered open={isModalOpen} onOk={handleOk} onCancel={handleCancel} title="Crear Nota"
-            footer={() => { <></> }}>
+            footer={() => { return <></> }}>
             <Form
               form={form}
               size="middle"
